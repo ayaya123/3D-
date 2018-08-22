@@ -156,6 +156,11 @@ public class Player : MonoBehaviour
 
     public void OnTriggerEnter (Collider other)
     {
-        
+        if (other.CompareTag("Explosion"))
+        {
+            dead = true;
+            globalManager.PlayerDied(playerNumber);
+            Destroy(gameObject);
+        }
     }
 }
